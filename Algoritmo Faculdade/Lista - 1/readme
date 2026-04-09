@@ -1,0 +1,279 @@
+1. Fazer um programa para receber um número inteiro de segundos do usuário e
+imprimir a quantidade correspondente em horas, minutos e segundos.
+
+#include <stdio.h>
+
+int main(){
+
+    int segundos, horas, minutos, dias, resto;
+
+    printf ("Digite um quantidade de segundos: \n");
+    scanf("%d", &segundos);
+
+    dias = segundos/86400;
+    resto = segundos%86400;
+    
+    horas = resto/3600;
+    resto = resto%3600;
+
+    minutos = resto/60;
+    resto = resto%60;
+
+    segundos = resto;
+
+    printf("%.02d:%.02d:%.02d:%.02d", dias, horas, minutos, segundos);
+
+    return 0;
+}
+
+2. Fazer um programa para ler um número do usuário e determinar se este número
+é par ou não par.
+
+#include <stdio.h>
+
+int main(){
+
+    int num;
+
+    printf("Digite a quantidade de usuarios: \n");
+    scanf("%d", &num);
+
+    if (num%2 == 0){
+        printf("Esse numero e par!");
+    }
+    else{
+        printf("Esse numero e impar!");
+    }
+
+    return 0;
+}
+
+3. Fazer um programa que recebe 3 valores não inteiros do usuário e mostra o
+maior deles, o menor deles e a média.
+
+#include <stdio.h>
+
+int main(){
+
+    int n1, n2, n3, menor, medio, maior;
+
+    printf("DIgite o primeiro numero: \n");
+    scanf("%d", &n1);
+    printf("DIgite o segundo numero: \n");
+    scanf("%d", &n2);
+    printf("DIgite o terceiro numero: \n");
+    scanf("%d", &n3);
+    ////////////////////////////////////
+    if (n1<=n2 && n1<=n3){
+        menor = n1;
+    }
+    else if (n2<=n1 && n2<=n3){
+        menor = n2;
+    }
+    else {
+        menor = n3;
+    }
+    ////////////////////////////////////
+    if (n1>=n2 && n1>=n3){
+        maior = n1;
+    }
+    else if (n2>=n1 && n2>=n3){
+        maior = n2;
+    }
+    else {
+        maior = n3;
+    }
+    ///////////////////////////////////
+    medio = n1+n2+n3-maior-menor;
+    ///////////////////////////////////
+    printf("O maior numero e: %d\n", maior);
+    printf("O mediano numero e: %d\n", medio);
+    printf("O menor numero e: %d\n", menor);
+
+    return 0;
+}
+
+4. Fazer um programa que recebe um símbolo de operação do usuário (+, -, / ou *)
+e dois números reais. O programa deve retornar o resultado da operação recebida
+sobre estes dois números.
+
+#include <stdio.h>
+
+int main(){
+
+    float n1, n2, resul;
+    int operacao;
+
+    printf("Escolha a operacao desejada:\n1. Soma\n2. Subtracao\n3. Multiplicacao\n4. Divisao\n");
+    scanf("%d", &operacao);
+
+    if (operacao==>=5){
+        printf("Selecione um numero valido por favor!");
+    } 
+    else if (operacao==1){
+        resul = n1+n2;
+    }
+    else if (operacao==2){
+        resul = n1-n2;
+    }
+    else if (operacao==3){
+        resul = n1*n2;
+    }
+    else{
+        resul = n1/n2;
+    }
+    
+    printf("O resultado da operacao e igual a: %.2f", resul);
+
+
+
+    return 0;
+}
+
+5. Fazer um programa para mostrar os 100 primeiros termos da série de Fibonacci.
+
+#include <stdio.h>
+
+int main(){
+
+    int num = 100, anterior=0, atual=1, proximo=0;
+
+    for (int i=1;i<=num;i++){
+
+        printf("%d\n", anterior);
+        proximo = anterior+atual;
+        anterior = atual;
+        atual = proximo;
+    }
+
+    return 0;
+}
+
+6. Fazer um programa para mostrar todos os números perfeitos entre 1 e 100. 
+
+#include <stdio.h>
+
+int main(){
+
+    int num, soma=0;
+
+    printf("Digite um numero: \n");
+    scanf("%d", &num);
+
+    for (int i=1; i<num; i++){
+        if (num % i == 0){
+        soma += i;
+        }
+    }
+
+    if (soma == num){
+        printf("Perfeito");
+    }
+    else {
+        printf("Nao e perfeito");
+    }
+
+
+    return 0;
+}
+
+7. Fazer um programa para receber um número inteiro do usuário e determinar se
+este número é primo ou não.
+
+#include <stdio.h>
+
+int main(){
+
+    int numero, contador=0;
+
+    printf("Digite um numero: \n");
+    scanf("%d", &numero);
+
+    for (int i=1;i<=numero;i++){
+        if (numero%i==0){;
+            contador++;
+        }
+    }
+
+    if (contador==2){
+        printf("Primo!");
+    }
+    else {
+        printf("Nao e primo!");
+    }
+;
+    return 0;
+}
+
+8. Crie um programa que construa a tabuada de 2 até 10.
+
+#include <stdio.h>
+
+int main(){
+
+    int resul=0;
+
+    for (int i=2;i<=10;i++){
+
+        for (int j=1;j<=10;j++){
+            resul = j*i;
+            printf("%d x %d = %d\n", i, j, resul);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+9. Fazer um programa para mostrar a soma de todos os números de um dominó.
+
+#include <stdio.h>
+
+int main(){
+
+    int somaTotal=0;
+
+    for (int i=0;i<=6;i++){
+
+        for (int z=i;z<=6;z++){
+            somaTotal += (i+z);
+            printf("Peça: (%d|%d), tem a uma soma acumulada de %d.\n", i, z, somaTotal);
+        }
+        printf("\n");
+    }
+
+    printf("A soma de todas pedras e igual a: %d\n", somaTotal);
+
+
+    return 0;
+}
+
+10. Fazer um programa no qual o usuário vai entrando sucessivamente com valores
+positivos. Quando o usuário entrar com um valor negativo o programa pára de
+pedir valores e calcula a média dos valores já fornecidos.
+
+#include <stdio.h>
+
+int main(){
+
+    float num, soma=0, media;
+    int contadorn=0;
+
+    do {
+
+        printf("Digite um numero: \n");
+        scanf("%f", &num);
+        
+        if (num>0){
+            contadorn++;
+            soma += num;
+        }
+
+    } while (num>=0);
+
+    media = soma/contadorn; 
+
+    printf ("A media dos valores e igual a: %f", media);
+
+    return 0;
+}
