@@ -1,11 +1,3 @@
-//Este projeto contém a resolução de quatro questões selecionadas de listas de exercícios da disciplina 
-//de Algoritmos. O diferencial deste projeto é a aplicação de Funções, consolidando diferentes problemas em um 
-//único sistema modular e organizado.
-
-//🎯 Objetivo
-//Demonstrar a aplicação de conceitos de Modularização e Reuso de Código, transformando algoritmos lineares em 
-//funções independentes e integradas.
-
 #include <stdio.h>
 #include <stdlib.h>
 
