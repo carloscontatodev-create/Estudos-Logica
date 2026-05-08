@@ -1,1 +1,134 @@
+//Este projeto contém a resolução de quatro questões selecionadas de listas de exercícios da disciplina 
+//de Algoritmos. O diferencial deste projeto é a aplicação de Funções, consolidando diferentes problemas em um 
+//único sistema modular e organizado.
 
+//🎯 Objetivo
+//Demonstrar a aplicação de conceitos de Modularização e Reuso de Código, transformando algoritmos lineares em 
+//funções independentes e integradas.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+    ////Funcoes Questao 1
+    int horas(int seg){return seg/3600;}
+    int minutos(int seg){return (seg%3600)/60;}
+    int segundos(int seg){return seg%60;}
+    ////
+    ////Funcoes Questao 2
+    int verificador(int numPouI){
+        if (numPouI%2==0){
+        return 1;
+        }
+        else {
+            return 2;
+        }
+    }
+    ////
+    ////Funcoes Questao 3
+    int maior(int n1, int n2, int n3){
+        int maiorn = n1;
+        if (n2>maiorn) {maiorn = n2;}
+        if (n3>maiorn) {maiorn = n3;}
+        return maiorn;
+    }
+    int menor(int n1, int n2, int n3){
+        int menorn = n1;
+        if (n2<menorn) {menorn = n2;}
+        if (n3<menorn) {menorn = n3;}
+        return menorn;
+    }
+    int medio(int n1, int n2, int n3){
+        return n1+n2+n3;
+    }
+    ////
+    ////Funcoes Questao 4
+    float soma(int n1, int n2) {return n1+n2;}
+    float subtracao(int n1, int n2) {return n1-n2;}
+    float multiplicacao(int n1, int n2) {return n1*n2;}
+    float divisao(int n1, int n2) {return n1/n2;}
+    ////
+    ////Media
+    float media(int n1, int n2){return (n1+n2)/2.0;}
+
+int main(){
+
+    int opcao;
+
+    do{
+
+        printf("- Unificacao de Exercicios -\n");
+        printf("1. Questao 1.\n2. Questao 2.\n3. Questao 3.\n4. Questao 4.\n5. Media\n6. Sair.\n");
+        scanf("%d", &opcao);
+
+        if (opcao>5){
+            printf("Por favor, digite uma opcao valida.\n");
+        }
+
+        if (opcao==1){
+            int seg;
+            printf("Digite uma quantidade de segundos: \n");
+            scanf("%d", &seg);
+            printf("%.2d:%.2d:%.2d\n", horas(seg), minutos(seg), segundos(seg));
+            break;
+        }
+        if (opcao==2){
+            int numPouI;
+            printf("Digite um numero: \n");
+            scanf("%d", &numPouI);
+            if (verificador(numPouI)==1){
+            printf("Esse numero e par!\n");
+            }
+            else {
+                printf("Esse numero e impar!\n");
+            }
+            break;
+        }
+        if (opcao==3){
+            int  n1, n2, n3;
+            int media, media2;
+            printf("Digite o primeiro numero: \n");
+            scanf("%d", &n1);
+            printf("Digite o segundo numero: \n");
+            scanf("%d", &n2);
+            printf("Digite o terceiro numero: \n");
+            scanf("%d", &n3);
+
+            media = medio(n1,n2,n3)-maior(n1,n2,n3)-menor(n1,n2,n3);
+            
+            printf ("Maior: %d\nMedia: %d\nMenor: %d\n", maior(n1, n2, n3), media, menor(n1, n2, n3));
+            break;
+        }
+        if (opcao==4){
+            int n1, n2, opcao2;
+            printf("Digite o primeiro numero: \n");
+            scanf("%d", &n1);
+            printf("Digite o segundo numero: \n");
+            scanf("%d", &n2);
+            do{
+            printf ("Qual operador deseja ultilizar.\n1. Soma\n2. Subtração\n3. Multiplicacao\n4. Divisao\n");
+            scanf("%d", &opcao2);
+                if (opcao2>5){printf("Digite uma opcao valida!\n");}
+                if (opcao2==1) {printf("%.2f\n", soma(n1,n2)); break;}
+                if (opcao2==2) {printf("%.2f\n", subtracao(n1,n2)); break;}
+                if (opcao2==3) {printf("%.2f\n", multiplicacao(n1,n2)); break;}
+                if (opcao2==4) {printf("%.2f\n", divisao(n1,n2)); break;}
+            } while (opcao2<5);
+            break;
+        }
+        if (opcao==5){
+            int n1, n2;
+            printf("Digite o primeiro numero: \n");
+            scanf("%d", &n1);
+            printf("Digite o segundo numero: \n");
+            scanf("%d", &n2);
+
+            printf("%.2f\n", media(n1,n2));
+            break;
+        }
+
+    } while (opcao != 6);
+
+    printf("Programa finalizado!\n");
+
+    return 0;
+}
