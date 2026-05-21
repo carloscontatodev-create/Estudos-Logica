@@ -36,6 +36,6 @@ int main(){
     printf("%s", palavrra);
 
 
-
+    system("pause")
     return 0;
 }
